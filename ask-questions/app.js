@@ -3,12 +3,14 @@ const app = express();
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 const morgan = require("morgan");
+const dotenv = require('dotenv');
+dotenv.config();
 
 
 const questionRoutes = require('./api/routes/questions');
 
 
-mongoose.connect('mongodb+srv://studee:studeekromtech123@cluster0.zfo6t.mongodb.net/Cluster0?retryWrites=true&w=majority',
+mongoose.connect(`mongodb+srv://studee:${process.env.MONGO_PASS}@cluster0.zfo6t.mongodb.net/Cluster0?retryWrites=true&w=majority`,
   {
     useNewUrlParser: true,
     useUnifiedTopology: true
